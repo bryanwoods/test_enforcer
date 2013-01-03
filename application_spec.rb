@@ -1,5 +1,13 @@
-require './built_in_classes'
+require './enforcer'
 require './application'
+
+RSpec.configure do |config|
+  Enforcer.discover_application_classes
+
+  config.after do
+    Enforcer.run
+  end
+end
 
 describe Foo do
   describe "#speak" do
@@ -16,5 +24,3 @@ describe Bar do
     end
   end
 end
-
-require './enforcer'

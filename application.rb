@@ -15,7 +15,3 @@ class Baz
     "Baz"
   end
 end
-
-$application_classes = ObjectSpace.each_object.select do |object|
-  object.is_a?(Class)
-end.reject { |object| $built_in_classes.include?(object) }
